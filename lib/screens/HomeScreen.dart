@@ -1,85 +1,196 @@
+import 'dart:math';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mywebapp/responsive_widget.dart';
+import 'package:mywebapp/widgets/CardWidget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String id = 'home_screen';
+  static const String id = "home_screen";
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _animation;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _animationController = AnimationController(
-        vsync: this,
-        duration: Duration(seconds: 10)
-    );
-    _animation = ColorTween(begin: Colors.red, end: Colors.lightBlue).animate(
-        _animationController);
-    _animationController.forward();
-    _animationController.addListener(() {
-      setState(() {
-
-      });
-    });
-  }
-
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: _animation.value,
-      body: Container(
-        child: Center(
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Container(
           child: Column(
             children: [
-              SizedBox(height: size.height * 0.4,),
-              Text("Pallav Chaudhari",
-                style: GoogleFonts.averageSans(
-                    fontSize: 50.0,
-                    color: Colors.deepPurple,
-                  fontWeight: FontWeight.w600
-                ),),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("Creating the change with the applications I build",
-                  style: GoogleFonts.averageSans(
-                      fontSize: 45.0,
-                      color: Colors.purple,
-                    fontWeight: FontWeight.bold,
-                  ),),
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text('My Work'),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text('About Me'),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text('Get A Quote'),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TypewriterAnimatedTextKit(
-                  speed: Duration(milliseconds: 200),
-                  text:["You will find me reading books,","when I am not busy coding different innovative apps.",
-                      "Engineer by Profession,","Coder by Passion"],
-                  textAlign: TextAlign.center,
-                  textStyle: GoogleFonts.aBeeZee(
-                      fontWeight: FontWeight.w400,
-                    fontSize: 40.0
-                  ),),
+              Container(
+                child: Stack(
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        "images/desktop.jpg",
+                        fit: BoxFit.fill,
+                      ),
+                      width: double.infinity,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ResponsiveWidget(
+                            largeScreen: SizedBox(
+                              height: size.height * 0.4,
+                            ),
+                            smallScreen: SizedBox(
+                              height: 20.0,
+                            ),
+                          ),
+                          Text(
+                            "Pallav Chaudhari",
+                            style: GoogleFonts.averageSans(
+                              fontSize:
+                                  isLargeScreen(context) == true ? 75.0 : 30,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                          Text(
+                            "Creating change through innovation",
+                            style: GoogleFonts.squadaOne(
+                              fontSize:
+                                  isLargeScreen(context) == true ? 73.0 : 27,
+                              color: Colors.purple,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                          TypewriterAnimatedTextKit(
+                            text: [
+                              "I am cross platform app developer",
+                              "Designing cool apps in free time",
+                              "Engineer by Passion",
+                              "Programmer by profession",
+                            ],
+                            speed: Duration(milliseconds: 250),
+                            textStyle: GoogleFonts.aBeeZee(
+                                fontSize:
+                                    isLargeScreen(context) == true ? 70.0 : 25,
+                                color: Colors.purple.shade200),
+                          ),
+                          ResponsiveWidget(
+                            largeScreen: SizedBox(
+                              height: size.height * 0.4,
+                            ),
+                            smallScreen: SizedBox(
+                              height: 5.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    SizedBox(height:isSmallScreen(context) == true ? 10.0 : 0.0,),
+                    Text(
+                      "My Work",
+                      style: GoogleFonts.averageSans(
+                          fontSize: isLargeScreen(context) == true ? 70.0 : 40,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.purple.shade400),
+                    ),
+                    ResponsiveWidget(
+                      largeScreen: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              CardWidget(
+                                  URL:
+                                      "https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy",
+                                  name: "Personal diary",
+                                  imgLocation: "images/personaldiary.jpg"),
+                              CardWidget(
+                                  URL:
+                                  "https://play.google.com/store/apps/details?id=com.andrdoc.signlanguage",
+                                  name: "Indian SLT",
+                                  imgLocation: "images/islrect.jpg"),
+                              CardWidget(
+                                  URL:
+                                  "https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy",
+                                  name: "Personal diary",
+                                  imgLocation: "images/personaldiary.jpg"),
+                            ],
+                          ),
+                        ),
+                      ),
+                      smallScreen: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            CardWidget(
+                                URL:
+                                    "https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy",
+                                name: "Personal Diary",
+                                imgLocation: "images/personaldiary.jpg"),
+                            CardWidget(
+                                URL:
+                                "https://play.google.com/store/apps/details?id=com.andrdoc.signlanguage",
+                                name: "Indian SLT",
+                                imgLocation: "images/islrect.jpg"),
+                            CardWidget(
+                                URL:
+                                "https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy",
+                                name: "Personal diary",
+                                imgLocation: "images/personaldiary.jpg"),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _animationController.dispose();
   }
 }
