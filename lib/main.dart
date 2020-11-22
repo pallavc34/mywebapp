@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: lighttheme,
+      theme: MyConstants().getlightTheme(),
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.id,
       routes: {

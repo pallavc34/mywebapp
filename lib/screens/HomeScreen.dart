@@ -2,12 +2,9 @@ import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mywebapp/responsive_widget.dart';
 import 'package:mywebapp/widgets/CardWidget.dart';
@@ -25,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   IconData myThemeIcon = Icons.wb_sunny;
   Color myThemeIconColor = Colors.yellow;
+  ThemeData currentTheme = MyConstants().getCurrentTheme(Icons.wb_sunny);
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +72,11 @@ class _HomeScreenState extends State<HomeScreen>
                             onTap: () {
                               setState(() {
                                 if (myThemeIcon == Icons.brightness_2) {
-                                  currentTheme = lighttheme;
+                                  currentTheme = MyConstants().getlightTheme();
                                   myThemeIcon = Icons.wb_sunny;
                                   myThemeIconColor = Colors.yellow;
                                 } else {
-                                  currentTheme = darktheme;
+                                  currentTheme = MyConstants().getdarkTheme();
                                   myThemeIcon = Icons.brightness_2;
                                   myThemeIconColor = Colors.white;
                                 }
@@ -96,11 +94,11 @@ class _HomeScreenState extends State<HomeScreen>
                         onTap: () {
                           setState(() {
                             if (myThemeIcon == Icons.brightness_2) {
-                              currentTheme = lighttheme;
+                              currentTheme = MyConstants().getlightTheme();
                               myThemeIcon = Icons.wb_sunny;
                               myThemeIconColor = Colors.yellow;
                             } else {
-                              currentTheme = darktheme;
+                              currentTheme = MyConstants().getdarkTheme();
                               myThemeIcon = Icons.brightness_2;
                               myThemeIconColor = Colors.white;
                             }

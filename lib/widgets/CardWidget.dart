@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mywebapp/screens/HomeScreen.dart';
-
-import '../constants.dart';
+import 'package:mywebapp/constants.dart';
 
 class CardWidget extends StatelessWidget {
 
@@ -15,6 +13,7 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var currentTheme = MyConstants().getCurrentTheme(themeData);
     return Padding(
       padding: const EdgeInsets.only(right: 20.0,bottom: 20.0),
       child: Card(
