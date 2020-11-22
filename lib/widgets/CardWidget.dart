@@ -1,58 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mywebapp/responsive_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mywebapp/screens/HomeScreen.dart';
+
+import '../constants.dart';
 
 class CardWidget extends StatelessWidget {
-  CardWidget(
-      {@required this.URL, @required this.name, @required this.imgLocation});
 
-  final String URL;
-  final String name;
-  final String imgLocation;
+  final String title;
+  final Color iconColor;
+  final IconData iconData;
+  final IconData themeData;
+  final String subtitle;
+
+  const CardWidget({this.title, this.iconColor, this.iconData, this.subtitle,@required this.themeData});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        launch(URL);
-      },
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: 10,
-          right: isLargeScreen(context) == true ? 15 : 10,
-          top: 10,
-          bottom: isLargeScreen(context) == true ? 10 : 15,
-        ),
-        child: Card(
-          child: Container(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(25.0),
-                  child: Container(
-                      width: isLargeScreen(context) == true ? 450 : 400,
-                      height: isLargeScreen(context) == true ? 450 : 400,
-                      child: Image.asset(
-                        imgLocation,
-                        fit: BoxFit.fill,
-                      )),
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text(
-                  name,
-                  style: GoogleFonts.averageSans(
-                      fontSize: isLargeScreen(context) == true ? 50.0 : 30.0,
-                      color: Colors.blue.shade600),
-                ),
-              ],
-            ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 20.0,bottom: 20.0),
+      child: Card(
+        elevation: 20.0,
+        color: currentTheme.backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.0),
+          side: BorderSide(
+            color: currentTheme.cardColor,
           ),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+        ),
+        shadowColor: currentTheme.cardColor,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment:
+            CrossAxisAlignment.start,
+            children: [
+              Icon(
+                iconData,
+                size: 50.0,
+                color: iconColor,
+              ),
+              Text(
+                title,
+                style: TextStyle(color: currentTheme.focusColor,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                subtitle,
+                style: TextStyle(color: currentTheme.focusColor,),
+                textAlign: TextAlign.start,
+              )
+            ],
+          ),
         ),
       ),
     );

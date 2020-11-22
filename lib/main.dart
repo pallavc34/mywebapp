@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mywebapp/constants.dart';
 import 'package:mywebapp/screens/HomeScreen.dart';
 
 void main() {
@@ -9,9 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: lighttheme,
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.id,
       routes: {

@@ -1,5 +1,5 @@
 name: mywebapp
-description: A new Flutter project.
+description: Developing quality cross platform apps since 2020.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -34,6 +34,7 @@ dependencies:
   velocity_x: ^1.0.1
   url_launcher: ^5.7.10
   font_awesome_flutter: ^8.10.0
+  flutter_emoji: ^2.2.1+1
 
 dev_dependencies:
   flutter_test:
@@ -65,17 +66,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Texturina
+      fonts:
+        - asset: fonts/Texturina-Regular.ttf
+        - asset: fonts/Texturina-Italic.ttf
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
