@@ -22,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   IconData myThemeIcon = Icons.wb_sunny;
   Color myThemeIconColor = Colors.yellow;
+  ThemeData currentTheme = MyConstants().getCurrentTheme(Icons.wb_sunny);
 
   @override
   Widget build(BuildContext context) {
-    ThemeData currentTheme = MyConstants().getCurrentTheme(Icons.wb_sunny);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -47,69 +47,31 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
                     ResponsiveWidget(
-                      largeScreen: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          // Container(
-                          //   padding: EdgeInsets.all(10.0),
-                          //   child: Text('My Work',style: TextStyle(
-                          //       color: currentTheme.focusColor
-                          //   ),),
-                          // ),
-                          // Container(
-                          //   padding: EdgeInsets.all(10.0),
-                          //   child: Text('About Me',style: TextStyle(
-                          //       color: currentTheme.focusColor
-                          //   ),),
-                          // ),
-                          // Container(
-                          //   padding: EdgeInsets.all(10.0),
-                          //   child: Text('Get A Quote',style: TextStyle(
-                          //     color: currentTheme.focusColor
-                          //   ),),
-                          // ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (myThemeIcon == Icons.brightness_2) {
-                                  currentTheme = MyConstants().getlightTheme();
-                                  myThemeIcon = Icons.wb_sunny;
-                                  myThemeIconColor = Colors.yellow;
-                                } else {
-                                  currentTheme = MyConstants().getdarkTheme();
-                                  myThemeIcon = Icons.brightness_2;
-                                  myThemeIconColor = Colors.white;
-                                }
-                              });
-                            },
-                            child: Icon(
-                              myThemeIcon,
-                              color: myThemeIconColor,
-                              size: 40.0,
-                            ),
-                          )
-                        ],
-                      ),
-                      smallScreen: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            if (myThemeIcon == Icons.brightness_2) {
-                              currentTheme = MyConstants().getlightTheme();
-                              myThemeIcon = Icons.wb_sunny;
-                              myThemeIconColor = Colors.yellow;
-                            } else {
-                              currentTheme = MyConstants().getdarkTheme();
-                              myThemeIcon = Icons.brightness_2;
-                              myThemeIconColor = Colors.white;
-                            }
-                          });
-                        },
-                        child: Icon(
-                          myThemeIcon,
-                          color: myThemeIconColor,
+                        largeScreen: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            // Container(
+                            //   padding: EdgeInsets.all(10.0),
+                            //   child: Text('My Work',style: TextStyle(
+                            //       color: currentTheme.focusColor
+                            //   ),),
+                            // ),
+                            // Container(
+                            //   padding: EdgeInsets.all(10.0),
+                            //   child: Text('About Me',style: TextStyle(
+                            //       color: currentTheme.focusColor
+                            //   ),),
+                            // ),
+                            // Container(
+                            //   padding: EdgeInsets.all(10.0),
+                            //   child: Text('Get A Quote',style: TextStyle(
+                            //     color: currentTheme.focusColor
+                            //   ),),
+                            // ),
+                            buildNightMode()
+                          ],
                         ),
-                      ),
-                    ),
+                        smallScreen: buildNightMode()),
                   ],
                 ),
               ),
@@ -234,7 +196,8 @@ class _HomeScreenState extends State<HomeScreen>
                             children: [
                               CardWidget(
                                 title: "Android Developer(Native)",
-                                subtitle: "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
+                                subtitle:
+                                    "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
                                     "as well as Google's Flutter UI framework\n which is popular for beautiful designs.",
                                 iconData: Icons.android,
                                 iconColor: Colors.green,
@@ -242,7 +205,8 @@ class _HomeScreenState extends State<HomeScreen>
                               ),
                               CardWidget(
                                 title: "iOS Developer(Flutter)",
-                                subtitle: "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
+                                subtitle:
+                                    "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
                                     "as well as Google's Flutter UI framework\n which is popular for beautiful designs.",
                                 iconData: Icons.code_rounded,
                                 iconColor: Colors.grey,
@@ -250,7 +214,8 @@ class _HomeScreenState extends State<HomeScreen>
                               ),
                               CardWidget(
                                 title: "Web Developer(Flutter)",
-                                subtitle: "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
+                                subtitle:
+                                    "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
                                     "as well as Google's Flutter UI framework\n which is popular for beautiful designs.",
                                 iconData: Icons.web,
                                 iconColor: Colors.grey,
@@ -266,7 +231,8 @@ class _HomeScreenState extends State<HomeScreen>
                           children: [
                             CardWidget(
                               title: "Android Developer(Native)",
-                              subtitle: "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
+                              subtitle:
+                                  "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
                                   "as well as Google's Flutter UI framework\nwhich is popular for beautiful designs.",
                               iconData: Icons.android,
                               iconColor: Colors.green,
@@ -274,7 +240,8 @@ class _HomeScreenState extends State<HomeScreen>
                             ),
                             CardWidget(
                               title: "iOS Developer(Flutter)",
-                              subtitle: "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
+                              subtitle:
+                                  "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
                                   "as well as Google's Flutter UI framework\nwhich is popular for beautiful designs.",
                               iconData: Icons.code_rounded,
                               iconColor: Colors.grey,
@@ -282,7 +249,8 @@ class _HomeScreenState extends State<HomeScreen>
                             ),
                             CardWidget(
                               title: "Web Developer(Flutter)",
-                              subtitle: "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
+                              subtitle:
+                                  "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
                                   "as well as Google's Flutter UI framework\nwhich is popular for beautiful designs.",
                               iconData: Icons.web,
                               iconColor: Colors.grey,
@@ -295,9 +263,33 @@ class _HomeScreenState extends State<HomeScreen>
                   ],
                 ),
               ),
+              //TODO MyWork
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  GestureDetector buildNightMode() {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          if (myThemeIcon == Icons.brightness_2) {
+            currentTheme = MyConstants().getlightTheme();
+            myThemeIcon = Icons.wb_sunny;
+            myThemeIconColor = Colors.yellow;
+          } else {
+            currentTheme = MyConstants().getdarkTheme();
+            myThemeIcon = Icons.brightness_2;
+            myThemeIconColor = Colors.white;
+          }
+        });
+      },
+      child: Icon(
+        myThemeIcon,
+        color: myThemeIconColor,
+        size: 40.0,
       ),
     );
   }
