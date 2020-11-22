@@ -22,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   IconData myThemeIcon = Icons.wb_sunny;
   Color myThemeIconColor = Colors.yellow;
-  ThemeData currentTheme = MyConstants().getCurrentTheme(Icons.wb_sunny);
 
   @override
   Widget build(BuildContext context) {
+    ThemeData currentTheme = MyConstants().getCurrentTheme(Icons.wb_sunny);
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
