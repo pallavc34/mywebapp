@@ -23,10 +23,10 @@ class CardWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.0),
           side: BorderSide(
-            color: currentTheme.cardColor,
+            color: themeData == Icons.wb_sunny ? Colors.black.withOpacity(0.7) : Colors.white.withOpacity(0.7),
           ),
         ),
-        shadowColor: currentTheme.cardColor,
+        shadowColor:themeData == Icons.wb_sunny ? Colors.black.withOpacity(0.5) : Colors.white.withOpacity(0.5),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
