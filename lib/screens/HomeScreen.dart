@@ -1,14 +1,13 @@
-import 'dart:math';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mywebapp/responsive_widget.dart';
+import 'package:mywebapp/widgets/BoldTitleTextWidget.dart';
 import 'package:mywebapp/widgets/CardWidget.dart';
+import 'package:mywebapp/widgets/CarouselWidget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:mywebapp/constants.dart';
 
@@ -285,7 +284,6 @@ class _HomeScreenState extends State<HomeScreen>
                   ],
                 ),
               ),
-              //TODO MyWork
               Center(
                 child: BoldTitleTextWidget(
                   currentTheme: currentTheme,
@@ -296,38 +294,36 @@ class _HomeScreenState extends State<HomeScreen>
                 largeScreen: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            "Personal Diary",
-                            style: GoogleFonts.comfortaa(
-                                fontSize: 40.0,
-                                fontWeight: FontWeight.w400,
-                                color: currentTheme.focusColor),
-                            textAlign: TextAlign.start,
-                          ),
-                          Text(
-                              "A diary which saves all your secrets, keeps track \nof all your moods and looks better than the most",
-                              style: GoogleFonts.comfortaa(
-                                  color: currentTheme.focusColor,
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.start)
-                        ],
-                      ),
-                      Transform.rotate(
-                        angle: 0.3,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(25.0),
-                          child: Container(
-                              height: size.height * 0.75,
-                              child: Image.asset("images/diary.jpeg")),
+                      Container(
+                        width: size.width * 0.5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "Personal Diary",
+                              style: GoogleFonts.aBeeZee(
+                                  fontSize: 40.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: currentTheme.focusColor),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(height: 20.0,),
+                            Text(
+                                "A diary which saves all your secrets, keeps track of all your moods and looks better than the most",
+                                style: GoogleFonts.aBeeZee(
+                                    color: currentTheme.focusColor,
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.w400),
+                                textAlign: TextAlign.start),
+                          ],
                         ),
                       ),
+                      Container(
+                        width: size.width * 0.4,
+                          child: CarouselWidget()),
                     ],
                   ),
                 ),
@@ -363,39 +359,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   fontSize: 15.0,
                                   fontWeight: FontWeight.w400),
                               textAlign: TextAlign.start),
-                          CarouselSlider.builder(
-                            itemCount: 3,
-                            options: CarouselOptions(
-                              enableInfiniteScroll: true,
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                            ),
-                            itemBuilder: (context, index){
-                              var string = ['Beautiful UI','Expressive','Customizable'];
-                              var diary = ['diary.jpeg','diary2.jpeg','diary3.jpeg'];
-                              return Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  color: Color(0xFFd1c4e9),
-                                ),
-                                padding: EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: [
-                                    Text(string[index]),
-                                    SizedBox(height: 5.0,),
-                                    Expanded(
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                        child: Container(
-                                            height: 250,
-                                            child: Image.asset("images/${diary[index]}")),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
+                          CarouselWidget(),
                         ],
                       ),
                     ),
@@ -438,27 +402,6 @@ class _HomeScreenState extends State<HomeScreen>
         color: myThemeIconColor,
         size: 40.0,
       ),
-    );
-  }
-}
-
-class BoldTitleTextWidget extends StatelessWidget {
-  BoldTitleTextWidget({
-    @required this.currentTheme,
-    @required this.text,
-  });
-
-  final ThemeData currentTheme;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: GoogleFonts.averageSans(
-          fontSize: isLargeScreen(context) == true ? 50 : 30,
-          fontWeight: FontWeight.w400,
-          color: currentTheme.focusColor),
     );
   }
 }
