@@ -172,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen>
                           GestureDetector(
                             onTap: () {
                               launch(
-                                  "mailto:pallavc34@gmail.com?subject=Get a Quote&body=");
+                                  "https://www.fiverr.com/share/71ezPb");
                             },
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(20.0),
                                 child: Text(
-                                  "Get in touch",
+                                  "Order a project",
                                 ),
                               ),
                             ),
@@ -237,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 title: "Web Developer(Flutter)",
                                 subtitle:
                                     "Web development made easy with flutter\nEven web apps are now easy to build with\n"
-                                    "flutter and its strong cross platform\n compatibilities.",
+                                    "flutter and its strong cross platform\n compatibilities and great UI",
                                 iconData: Icons.web,
                                 iconColor: Colors.grey,
                                 themeData: myThemeIcon,
@@ -247,35 +247,44 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                       ),
                       smallScreen: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Column(
                           children: [
-                            CardWidget(
-                              title: "Android Developer(Native)",
-                              subtitle:
-                                  "Developing Android apps has always been\na passion. Can develop apps on Native Android\n"
-                                  "as well as Google's Flutter UI framework\nwhich is popular for beautiful designs.",
-                              iconData: Icons.android,
-                              iconColor: Colors.green,
-                              themeData: myThemeIcon,
+                            Container(
+                              width: 350,
+                              child: CardWidget(
+                                title: "Android Developer(Native)",
+                                subtitle:
+                                    "Developing Android apps has always been a passion. Can develop apps on Native Android "
+                                    "as well as Google's Flutter UI framework which is popular for beautiful designs.",
+                                iconData: Icons.android,
+                                iconColor: Colors.green,
+                                themeData: myThemeIcon,
+                              ),
                             ),
-                            CardWidget(
-                              title: "iOS Developer(Flutter)",
-                              subtitle:
-                                  "Cross platform apps that look and feel\nnative. I develop iOS apps in Flutter framework\n"
-                                  "which is popular for beautiful designs\nwith skia, its own graphic engine.",
-                              iconData: Icons.code_rounded,
-                              iconColor: Colors.grey,
-                              themeData: myThemeIcon,
+                            Container(
+                              width: 350,
+                              child: CardWidget(
+                                title: "iOS Developer(Flutter)",
+                                subtitle:
+                                    "Cross platform apps that look and feel native. I develop iOS apps in Flutter framework "
+                                    "which is popular for beautiful designs with skia, its own graphic engine.",
+                                iconData: Icons.code_rounded,
+                                iconColor: Colors.grey,
+                                themeData: myThemeIcon,
+                              ),
                             ),
-                            CardWidget(
-                              title: "Web Developer(Flutter)",
-                              subtitle:
-                                  "Web development made easy with flutter\nEven web apps are now easy to build with\n"
-                                  "flutter and its strong cross platform\ncompatibilities.",
-                              iconData: Icons.web,
-                              iconColor: Colors.grey,
-                              themeData: myThemeIcon,
+                            Container(
+                              width: 350,
+                              child: CardWidget(
+                                title: "Web Developer(Flutter)",
+                                subtitle:
+                                "Web development made easy with flutter.Even web apps are now easy to build with Google's"
+                                    "flutter framework and its strong cross platform compatibilities and great UI",
+                                iconData: Icons.web,
+                                iconColor: Colors.grey,
+                                themeData: myThemeIcon,
+                              ),
                             ),
                           ],
                         ),
@@ -329,39 +338,29 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 smallScreen: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Card(
-                    elevation: 15.0,
-                    color: currentTheme.backgroundColor,
-                    shadowColor: myThemeIcon == Icons.wb_sunny ? Colors.black.withOpacity(0.5) : Colors.white.withOpacity(0.5),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
-                      side: BorderSide(
-                        color: myThemeIcon == Icons.wb_sunny ? Colors.black.withOpacity(0.7) : Colors.white.withOpacity(0.7),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Personal Diary",
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Personal Diary",
+                          style: GoogleFonts.aBeeZee(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w400,
+                              color: currentTheme.focusColor),
+                          textAlign: TextAlign.start,
+                        ),
+                        Text(
+                            "A diary which saves all your secrets, keeps track \nof all your moods and looks better than the most",
                             style: GoogleFonts.aBeeZee(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.w400,
-                                color: currentTheme.focusColor),
-                            textAlign: TextAlign.start,
-                          ),
-                          Text(
-                              "A diary which saves all your secrets, keeps track \nof all your moods and looks better than the most",
-                              style: GoogleFonts.aBeeZee(
-                                  color: currentTheme.focusColor,
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.start),
-                          CarouselWidget(),
-                        ],
-                      ),
+                                color: currentTheme.focusColor,
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.start),
+                        SizedBox(height: 10.0,),
+                        CarouselWidget(),
+                      ],
                     ),
                   ),
                 ),
