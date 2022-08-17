@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mywebapp/constants.dart';
 
 class CardWidget extends StatelessWidget {
@@ -29,23 +30,25 @@ class CardWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-            crossAxisAlignment:
-            CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
+              FaIcon(
                 iconData,
                 size: 50.0,
                 color: iconColor,
               ),
+              SizedBox(height: 5.0,),
               Text(
                 title,
                 style: TextStyle(color: currentTheme.focusColor,
                     fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 5.0,),
               Text(
                 subtitle,
                 style: TextStyle(color: currentTheme.focusColor,),
                 textAlign: TextAlign.start,
+                maxLines: 6,
               )
             ],
           ),

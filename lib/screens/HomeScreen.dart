@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mywebapp/responsive_widget.dart';
 import 'package:mywebapp/widgets/BoldTitleTextWidget.dart';
@@ -66,11 +67,13 @@ class _HomeScreenState extends State<HomeScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Pallav Chaudhari",
-                      style: GoogleFonts.averageSans(
-                        fontSize: 30.0,
-                        color: currentTheme.focusColor,
+                    Expanded(
+                      child: Text(
+                        "A Passionate Developers Creation",
+                        style: GoogleFonts.averageSans(
+                          fontSize: 30.0,
+                          color: currentTheme.focusColor,
+                        ),
                       ),
                     ),
                     ResponsiveWidget(
@@ -110,6 +113,13 @@ class _HomeScreenState extends State<HomeScreen>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(80.0),
+                            child: Container(
+                              width: 150,
+                                height: 150,
+                                child: Image.asset("images/myself.jpg",fit: BoxFit.fitWidth,)),
+                          ),
                           ResponsiveWidget(
                             largeScreen: SizedBox(
                               height: 40.0,
@@ -121,8 +131,7 @@ class _HomeScreenState extends State<HomeScreen>
                           Text(
                             "Hey! I am Pallav",
                             style: GoogleFonts.aBeeZee(
-                              fontSize:
-                                  isLargeScreen(context) == true ? 50 : 27,
+                              fontSize: 27,
                               color: currentTheme.focusColor,
                               fontWeight: FontWeight.w300,
                             ),
@@ -134,21 +143,19 @@ class _HomeScreenState extends State<HomeScreen>
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 40.0),
                             child: Text(
-                              "Developing quality Native Android and Cross platform apps ",
-                              style: TextStyle(
-                                  fontSize: isLargeScreen(context) == true
-                                      ? 60.0
-                                      : 30,
-                                  color: currentTheme.focusColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Texturina'),
+                              MyConstants.introduction,
+                              style: GoogleFonts.montserrat(
+                                fontSize: 25,
+                                color: currentTheme.focusColor,
+                                //fontFamily: 'Texturina'
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ),
                           SizedBox(
                             height: 20,
                           ),
-                          TypewriterAnimatedTextKit(
+                          /*TypewriterAnimatedTextKit(
                             text: [
                               "I am App Developer",
                               "I specialize in Android",
@@ -160,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 fontSize:
                                     isLargeScreen(context) == true ? 58.0 : 23,
                                 color: currentTheme.focusColor),
-                          ),
+                          ),*/
                           ResponsiveWidget(
                             largeScreen: SizedBox(
                               height: 20.0,
@@ -169,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen>
                               height: 20.0,
                             ),
                           ),
-                          GestureDetector(
+                          /*GestureDetector(
                             onTap: () {
                               launch(
                                   "https://www.fiverr.com/share/71ezPb");
@@ -186,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 ),
                               ),
                             ),
-                          ),
+                          ),*/
                           ResponsiveWidget(
                             largeScreen: SizedBox(
                               height: 40,
@@ -207,7 +214,10 @@ class _HomeScreenState extends State<HomeScreen>
                     SizedBox(
                       height: isSmallScreen(context) == true ? 10.0 : 0.0,
                     ),
-                    BoldTitleTextWidget(currentTheme: currentTheme,text: "Services",),
+                    BoldTitleTextWidget(
+                      currentTheme: currentTheme,
+                      text: "Technology Stack",
+                    ),
                     ResponsiveWidget(
                       largeScreen: Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -215,32 +225,42 @@ class _HomeScreenState extends State<HomeScreen>
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              CardWidget(
-                                title: "Android Developer(Native)",
-                                subtitle:
-                                    "Developing Android apps has always been\na passion. I develop apps in Native Android\n"
-                                    "as well as Google's Flutter UI framework\n which is popular for beautiful designs.",
-                                iconData: Icons.android,
-                                iconColor: Colors.green,
-                                themeData: myThemeIcon,
+                              Container(
+                                width: 350,
+                                child: CardWidget(
+                                  title: "Java Developer",
+                                  subtitle:
+                                  "I am experienced in designing, developing and debugging frontend user interfaces in Ja"
+                                     + "va in Banking domain. Worked in TCS BANCS in banking products. Tools used include "
+                                     + "Eclipse, Tomcat Server, SQL Developer",
+                                  iconData: FontAwesomeIcons.java,
+                                  iconColor: Colors.red,
+                                  themeData: myThemeIcon,
+                                ),
                               ),
-                              CardWidget(
-                                title: "iOS Developer(Flutter)",
-                                subtitle:
-                                    "Cross platform apps that look and feel\nnative. I develop iOS apps in Flutter framework\n"
-                                    "which is popular for beautiful designs\nwith skia, its own graphic engine.",
-                                iconData: Icons.code_rounded,
-                                iconColor: Colors.grey,
-                                themeData: myThemeIcon,
+                              Container(
+                                width: 350,
+                                child: CardWidget(
+                                  title: "Native Android Developer",
+                                  subtitle:
+                                      "Developing Android apps has always been a passion. I develop apps in Native Android "
+                                      "as well as Google's Flutter UI framework which is popular for beautiful designs.",
+                                  iconData: FontAwesomeIcons.android,
+                                  iconColor: Colors.green,
+                                  themeData: myThemeIcon,
+                                ),
                               ),
-                              CardWidget(
-                                title: "Web Developer(Flutter)",
-                                subtitle:
-                                    "Web development made easy with flutter\nEven web apps are now easy to build with\n"
-                                    "flutter and its strong cross platform\n compatibilities and great UI",
-                                iconData: Icons.web,
-                                iconColor: Colors.grey,
-                                themeData: myThemeIcon,
+                              Container(
+                                width: 350,
+                                child: CardWidget(
+                                  title: "Flutter Developer",
+                                  subtitle:
+                                      "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
+                                      "which is popular for beautiful designs with skia, its own graphic engine.",
+                                  iconData: FontAwesomeIcons.appStoreIos,
+                                  iconColor: Colors.blue,
+                                  themeData: myThemeIcon,
+                                ),
                               ),
                             ],
                           ),
@@ -253,11 +273,24 @@ class _HomeScreenState extends State<HomeScreen>
                             Container(
                               width: 350,
                               child: CardWidget(
-                                title: "Android Developer(Native)",
+                                title: "Java Developer",
                                 subtitle:
-                                    "Developing Android apps has always been a passion. Can develop apps on Native Android "
+                                "I am experienced in designing, developing and debugging frontend user interfaces in Ja"
+                                    + "va in Banking domain. Working with TCS BANCS in banking products. Tools used include "
+                                    + "Eclipse, Tomcat Server, SQL Developer",
+                                iconData: FontAwesomeIcons.java,
+                                iconColor: Colors.red,
+                                themeData: myThemeIcon,
+                              ),
+                            ),
+                            Container(
+                              width: 350,
+                              child: CardWidget(
+                                title: "Native Android Developer",
+                                subtitle:
+                                "Developing Android apps has always been a passion. I develop apps in Native Android "
                                     "as well as Google's Flutter UI framework which is popular for beautiful designs.",
-                                iconData: Icons.android,
+                                iconData: FontAwesomeIcons.android,
                                 iconColor: Colors.green,
                                 themeData: myThemeIcon,
                               ),
@@ -265,24 +298,12 @@ class _HomeScreenState extends State<HomeScreen>
                             Container(
                               width: 350,
                               child: CardWidget(
-                                title: "iOS Developer(Flutter)",
+                                title: "Flutter Developer",
                                 subtitle:
-                                    "Cross platform apps that look and feel native. I develop iOS apps in Flutter framework "
+                                "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
                                     "which is popular for beautiful designs with skia, its own graphic engine.",
-                                iconData: Icons.code_rounded,
-                                iconColor: Colors.grey,
-                                themeData: myThemeIcon,
-                              ),
-                            ),
-                            Container(
-                              width: 350,
-                              child: CardWidget(
-                                title: "Web Developer(Flutter)",
-                                subtitle:
-                                "Web development made easy with flutter.Even web apps are now easy to build with Google's"
-                                    "flutter framework and its strong cross platform compatibilities and great UI",
-                                iconData: Icons.web,
-                                iconColor: Colors.grey,
+                                iconData: FontAwesomeIcons.appStoreIos,
+                                iconColor: Colors.blue,
                                 themeData: myThemeIcon,
                               ),
                             ),
@@ -296,7 +317,7 @@ class _HomeScreenState extends State<HomeScreen>
               Center(
                 child: BoldTitleTextWidget(
                   currentTheme: currentTheme,
-                  text: "My Work",
+                  text: "My Creations",
                 ),
               ),
               ResponsiveWidget(
@@ -319,7 +340,9 @@ class _HomeScreenState extends State<HomeScreen>
                                   color: currentTheme.focusColor),
                               textAlign: TextAlign.start,
                             ),
-                            SizedBox(height: 20.0,),
+                            SizedBox(
+                              height: 20.0,
+                            ),
                             Text(
                                 "A diary which saves all your secrets, keeps track of all your moods and looks better than the most",
                                 style: GoogleFonts.aBeeZee(
@@ -331,8 +354,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                       ),
                       Container(
-                        width: size.width * 0.4,
-                          child: CarouselWidget()),
+                          width: size.width * 0.4, child: CarouselWidget()),
                     ],
                   ),
                 ),
@@ -358,7 +380,9 @@ class _HomeScreenState extends State<HomeScreen>
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w400),
                             textAlign: TextAlign.start),
-                        SizedBox(height: 10.0,),
+                        SizedBox(
+                          height: 10.0,
+                        ),
                         CarouselWidget(),
                       ],
                     ),
@@ -369,10 +393,9 @@ class _HomeScreenState extends State<HomeScreen>
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                    "Designed and Developed by Pallav Chaudhari. Copyright @ 2020",
-                style: TextStyle(
-                  color: currentTheme.focusColor
-                ),),
+                  "Designed and Developed by Pallav Chaudhari in Flutter. Copyright @ 2020 - 2022",
+                  style: TextStyle(color: currentTheme.focusColor),
+                ),
               )
             ],
           ),

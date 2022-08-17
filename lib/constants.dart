@@ -29,4 +29,11 @@ class MyConstants{
       return getdarkTheme();
     }
   }
+
+  static String introduction = "Innovative | Self-Motivated | Ambitious. "
+      + "I am driven by the desire to leave a mark on the world. Professionally, "
+      + "I work as a Java developer in TCS Limited. "
+      + "I specialize in designing, developing and debugging frontend UI in banking domain. "
+      + "I am an engineer by profession and developer by passion."
+      + "I am passionate about developing native Android and cross platform apps with flutter framework. ";
 }
