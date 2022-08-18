@@ -16,7 +16,7 @@ class BoldTitleTextWidget extends StatelessWidget {
     return Text(
       text,
       style: GoogleFonts.averageSans(
-          fontSize: isLargeScreen(context) == true ? 40 : 20,
+          fontSize: isLargeScreen(context) == true ? 25 : 20,
           fontWeight: FontWeight.w400,
           color: currentTheme.focusColor),
     );

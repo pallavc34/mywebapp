@@ -7,6 +7,7 @@ import '../../responsive_widget.dart';
 import '../../widgets/BoldTitleTextWidget.dart';
 import '../../widgets/CardWidget.dart';
 import '../../widgets/CarouselWidget.dart';
+import '../../widgets/MaterialAppWidget.dart';
 
 class mHomeScreen extends StatefulWidget {
   static const String id = "mhome_screen";
@@ -100,7 +101,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                           Text(
                             "Hey! I am Pallav",
                             style: GoogleFonts.aBeeZee(
-                              fontSize: 27,
+                              fontSize: 22,
                               color: currentTheme.focusColor,
                               fontWeight: FontWeight.w300,
                             ),
@@ -114,7 +115,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                             child: Text(
                               MyConstants.introduction,
                               style: GoogleFonts.montserrat(
-                                fontSize: 25,
+                                fontSize: 20,
                                 color: currentTheme.focusColor,
                                 //fontFamily: 'Texturina'
                               ),
@@ -174,7 +175,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                     ),
                     BoldTitleTextWidget(
                       currentTheme: currentTheme,
-                      text: "Technology Stack",
+                      text: "I am",
                     ),
                     Padding(
                       padding: const EdgeInsets.all(20.0),
@@ -238,38 +239,9 @@ class _mHomeScreenState extends State<mHomeScreen>
                   text: "My Creations",
                 ),
               ),
-
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Personal Diary",
-                        style: GoogleFonts.aBeeZee(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w400,
-                            color: currentTheme.focusColor),
-                        textAlign: TextAlign.start,
-                      ),
-                      Text(
-                          "A diary which saves all your secrets, keeps track \nof all your moods and looks better than the most",
-                          style: GoogleFonts.aBeeZee(
-                              color: currentTheme.focusColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.start),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      CarouselWidget(),
-                    ],
-                  ),
-                ),
-              ),
-
+              MaterialAppWidget(text: "ISLT", subtext: "A sign language translator that aims to make communication with deaf people more easier", image: "images/ISLT.jpg", url: Uri(scheme: 'https', host: 'play.google.com', path: 'headers/'),),
+              SizedBox(height: 10,),
+              MaterialAppWidget(text: "Personal Diary", subtext: "A diary which saves all your secrets, keeps track of all your moods and looks better than the most", image: "images/diary.jpg", url: Uri(scheme: 'https', host: 'play.google.com', path: 'headers/'),),
               //Footer
               Padding(
                 padding: const EdgeInsets.all(10.0),
