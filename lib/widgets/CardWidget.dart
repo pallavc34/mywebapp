@@ -10,7 +10,7 @@ class CardWidget extends StatelessWidget {
   final IconData themeData;
   final String subtitle;
 
-  const CardWidget({this.title, this.iconColor, this.iconData, this.subtitle,@required this.themeData});
+  const CardWidget({required this.title, required this.iconColor, required this.iconData, required this.subtitle,required this.themeData});
 
   @override
   Widget build(BuildContext context) {

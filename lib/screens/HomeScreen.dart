@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -6,13 +5,33 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mywebapp/responsive_widget.dart';
+import 'package:mywebapp/screens/ResponsiveDesktop/dHomeScreen.dart';
 import 'package:mywebapp/widgets/BoldTitleTextWidget.dart';
 import 'package:mywebapp/widgets/CardWidget.dart';
 import 'package:mywebapp/widgets/CarouselWidget.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:mywebapp/constants.dart';
 
+import 'ResponsiveMobile/mHomeScreen.dart';
+
 class HomeScreen extends StatefulWidget {
+  static const String id = "home_screen";
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: isSmallScreen(context) ? mHomeScreen() : dHomeScreen(),
+    );
+  }
+}
+
+
+/*class HomeScreen extends StatefulWidget {
   static const String id = "home_screen";
 
   @override
@@ -24,8 +43,8 @@ class _HomeScreenState extends State<HomeScreen>
   IconData myThemeIcon = Icons.wb_sunny;
   Color myThemeIconColor = Colors.yellow;
   ThemeData currentTheme = MyConstants().getCurrentTheme(Icons.wb_sunny);
-  AnimationController _animationController;
-  Animation _animation;
+  late AnimationController _animationController;
+  late Animation _animation;
 
   @override
   void initState() {
@@ -227,39 +246,48 @@ class _HomeScreenState extends State<HomeScreen>
                             children: [
                               Container(
                                 width: 350,
-                                child: CardWidget(
-                                  title: "Java Developer",
-                                  subtitle:
-                                  "I am experienced in designing, developing and debugging frontend user interfaces in Ja"
-                                     + "va in Banking domain. Worked in TCS BANCS in banking products. Tools used include "
-                                     + "Eclipse, Tomcat Server, SQL Developer",
-                                  iconData: FontAwesomeIcons.java,
-                                  iconColor: Colors.red,
-                                  themeData: myThemeIcon,
+                                height: 250,
+                                child: Center(
+                                  child: CardWidget(
+                                    title: "Java Developer",
+                                    subtitle:
+                                    "I am experienced in designing, developing and debugging frontend user interfaces in Ja"
+                                       + "va in Banking domain. Worked in TCS BANCS in banking products. Tools used include "
+                                       + "Eclipse, Tomcat Server, SQL Developer",
+                                    iconData: FontAwesomeIcons.java,
+                                    iconColor: Colors.red,
+                                    themeData: myThemeIcon,
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: 350,
-                                child: CardWidget(
-                                  title: "Native Android Developer",
-                                  subtitle:
-                                      "Developing Android apps has always been a passion. I develop apps in Native Android "
-                                      "as well as Google's Flutter UI framework which is popular for beautiful designs.",
-                                  iconData: FontAwesomeIcons.android,
-                                  iconColor: Colors.green,
-                                  themeData: myThemeIcon,
+                              Center(
+                                child: Container(
+                                  width: 350,
+                                  height: 250,
+                                  child: CardWidget(
+                                    title: "Native Android Developer",
+                                    subtitle:
+                                        "Developing Android apps has always been a passion. I develop apps in Native Android "
+                                        "as well as Google's Flutter UI framework which is popular for beautiful designs.",
+                                    iconData: FontAwesomeIcons.android,
+                                    iconColor: Colors.green,
+                                    themeData: myThemeIcon,
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: 350,
-                                child: CardWidget(
-                                  title: "Flutter Developer",
-                                  subtitle:
-                                      "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
-                                      "which is popular for beautiful designs with skia, its own graphic engine.",
-                                  iconData: FontAwesomeIcons.appStoreIos,
-                                  iconColor: Colors.blue,
-                                  themeData: myThemeIcon,
+                              Center(
+                                child: Container(
+                                  width: 350,
+                                  height: 250,
+                                  child: CardWidget(
+                                    title: "Flutter Developer",
+                                    subtitle:
+                                        "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
+                                        "which is popular for beautiful designs with skia, its own graphic engine.",
+                                    iconData: FontAwesomeIcons.appStoreIos,
+                                    iconColor: Colors.blue,
+                                    themeData: myThemeIcon,
+                                  ),
                                 ),
                               ),
                             ],
@@ -272,39 +300,48 @@ class _HomeScreenState extends State<HomeScreen>
                           children: [
                             Container(
                               width: 350,
-                              child: CardWidget(
-                                title: "Java Developer",
-                                subtitle:
-                                "I am experienced in designing, developing and debugging frontend user interfaces in Ja"
-                                    + "va in Banking domain. Working with TCS BANCS in banking products. Tools used include "
-                                    + "Eclipse, Tomcat Server, SQL Developer",
-                                iconData: FontAwesomeIcons.java,
-                                iconColor: Colors.red,
-                                themeData: myThemeIcon,
+                              height: 250,
+                              child: Center(
+                                child: CardWidget(
+                                  title: "Java Developer",
+                                  subtitle:
+                                  "I am experienced in designing, developing and debugging frontend user interfaces in Ja"
+                                      + "va in Banking domain. Working with TCS BANCS in banking products. Tools used include "
+                                      + "Eclipse, Tomcat Server, SQL Developer",
+                                  iconData: FontAwesomeIcons.java,
+                                  iconColor: Colors.red,
+                                  themeData: myThemeIcon,
+                                ),
                               ),
                             ),
                             Container(
                               width: 350,
-                              child: CardWidget(
-                                title: "Native Android Developer",
-                                subtitle:
-                                "Developing Android apps has always been a passion. I develop apps in Native Android "
-                                    "as well as Google's Flutter UI framework which is popular for beautiful designs.",
-                                iconData: FontAwesomeIcons.android,
-                                iconColor: Colors.green,
-                                themeData: myThemeIcon,
+                              height: 250,
+                              child: Center(
+                                child: CardWidget(
+                                  title: "Native Android Developer",
+                                  subtitle:
+                                  "Developing Android apps has always been a passion. I develop apps in Native Android "
+                                      "as well as Google's Flutter UI framework which is popular for beautiful designs.",
+                                  iconData: FontAwesomeIcons.android,
+                                  iconColor: Colors.green,
+                                  themeData: myThemeIcon,
+                                ),
                               ),
                             ),
                             Container(
                               width: 350,
-                              child: CardWidget(
-                                title: "Flutter Developer",
-                                subtitle:
-                                "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
-                                    "which is popular for beautiful designs with skia, its own graphic engine.",
-                                iconData: FontAwesomeIcons.appStoreIos,
-                                iconColor: Colors.blue,
-                                themeData: myThemeIcon,
+                              height: 250,
+                              child: Center(
+                                child: CardWidget(
+                                  title: "Flutter Developer",
+                                  subtitle:
+                                  "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
+                                      "which is popular for beautiful designs with skia, its own graphic engine.",
+                                  iconData: FontAwesomeIcons.appStoreIos,
+                                  iconColor: Colors.blue,
+                                  themeData: myThemeIcon,
+                                ),
                               ),
                             ),
                           ],
@@ -426,4 +463,4 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
   }
-}
+}*/

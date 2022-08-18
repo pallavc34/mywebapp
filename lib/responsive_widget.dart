@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ResponsiveWidget extends StatelessWidget {
   final Widget largeScreen;
-  final Widget mediumScreen;
+  final Widget? mediumScreen;
   final Widget smallScreen;
 
-  ResponsiveWidget({@required this.largeScreen, this.mediumScreen, this.smallScreen});
+  ResponsiveWidget({required this.largeScreen, this.mediumScreen, required this.smallScreen});
 
   static bool isSmallScreen(BuildContext context) {
     return MediaQuery.of(context).size.width < 800;
@@ -26,11 +26,11 @@ class ResponsiveWidget extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth > 1200) {
           return largeScreen;
-        } else if (constraints.maxWidth <= 1200 &&
+        } /*else if (constraints.maxWidth <= 1200 &&
             constraints.maxWidth >= 800) {
           return mediumScreen ?? largeScreen;
-        } else {
-          return smallScreen ?? largeScreen;
+        } */else {
+          return smallScreen /*?? largeScreen*/;
         }
       },
     );

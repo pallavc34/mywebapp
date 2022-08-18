@@ -11,7 +11,7 @@ class CarouselWidget extends StatelessWidget {
         autoPlay: true,
         enlargeCenterPage: true,
       ),
-      itemBuilder: (context, index) {
+      itemBuilder: (context, index, i) {
         var string = ['Beautiful UI', 'Expressive', 'Customizable'];
         var diary = ['diary.jpeg', 'diary2.jpeg', 'diary3.jpeg'];
         return Container(

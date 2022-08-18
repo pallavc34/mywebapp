@@ -4,8 +4,8 @@ import 'package:mywebapp/responsive_widget.dart';
 
 class BoldTitleTextWidget extends StatelessWidget {
   BoldTitleTextWidget({
-    @required this.currentTheme,
-    @required this.text,
+    required this.currentTheme,
+    required this.text,
   });
 
   final ThemeData currentTheme;
@@ -16,7 +16,7 @@ class BoldTitleTextWidget extends StatelessWidget {
     return Text(
       text,
       style: GoogleFonts.averageSans(
-          fontSize: isLargeScreen(context) == true ? 50 : 30,
+          fontSize: isLargeScreen(context) == true ? 40 : 20,
           fontWeight: FontWeight.w400,
           color: currentTheme.focusColor),
     );
