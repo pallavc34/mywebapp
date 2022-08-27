@@ -10,7 +10,9 @@ import 'package:mywebapp/widgets/BoldTitleTextWidget.dart';
 import 'package:mywebapp/widgets/CardWidget.dart';
 import 'package:mywebapp/widgets/CarouselWidget.dart';
 import 'package:mywebapp/constants.dart';
+import 'package:provider/provider.dart';
 
+import '../Provider/ThemeProvider.dart';
 import 'ResponsiveMobile/mHomeScreen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
