@@ -62,7 +62,7 @@ class _mHomeScreenState extends State<mHomeScreen>
             child: AppBarWidget(),
           ),
           body: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: ClampingScrollPhysics(),
             child: Container(
               color: themeValue.getCurrentTheme.backgroundColor,
               child: Column(
@@ -284,9 +284,39 @@ class _mHomeScreenState extends State<mHomeScreen>
                         url:
                             'https://blog.apdevc.com/2020/02/flutter-tutorial-introduction-to-flutter.html',
                       ),
+                      SizedBox(height: 10.0,),
+                      GestureDetector(
+                        onTap: (){
+                          launch("https://blog.apdevc.com/search/label/Android%20Development");
+                        },
+                        child: Container(
+                          width: 350,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color:MyConstants.accentColor,
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  FaIcon(FontAwesomeIcons.arrowRight,color: themeValue.getCurrentTheme.focusColor,),
+                                  SizedBox(width: 8.0,),
+                                  Text(
+                                    "View all posts",
+                                    style: TextStyle(
+                                        color: themeValue.getCurrentTheme.focusColor
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-
                   SizedBox(height: 10.0,),
                   //Footer
                   Container(
