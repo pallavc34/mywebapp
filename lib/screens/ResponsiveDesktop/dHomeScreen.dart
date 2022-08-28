@@ -281,6 +281,34 @@ class _dHomeScreenState extends State<dHomeScreen>
                         url:
                             'https://blog.apdevc.com/2020/02/flutter-tutorial-introduction-to-flutter.html',
                       ),
+                      GestureDetector(
+                        onTap: (){
+                          launch("https://blog.apdevc.com/search/label/Android%20Development");
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color:MyConstants.accentColor,
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  FaIcon(FontAwesomeIcons.arrowRight,color: themeValue.getCurrentTheme.focusColor,),
+                                  SizedBox(width: 8.0,),
+                                  Text(
+                                    "View all posts",
+                                    style: TextStyle(
+                                      color: themeValue.getCurrentTheme.focusColor
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                   //Footer
