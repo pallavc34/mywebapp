@@ -11,6 +11,7 @@ import 'package:mywebapp/widgets/CardWidget.dart';
 import 'package:mywebapp/widgets/CarouselWidget.dart';
 import 'package:mywebapp/constants.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Provider/ThemeProvider.dart';
 import 'ResponsiveMobile/mHomeScreen.dart';
@@ -24,6 +25,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
