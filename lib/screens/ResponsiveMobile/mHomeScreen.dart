@@ -57,7 +57,7 @@ class _mHomeScreenState extends State<mHomeScreen>
       builder: (BuildContext context, themeValue, Widget? child) {
         return Scaffold(
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(50),
+            preferredSize: const Size.fromHeight(60),
             child: AppBarWidget(),
           ),
           body: SingleChildScrollView(
@@ -75,13 +75,13 @@ class _mHomeScreenState extends State<mHomeScreen>
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(80.0),
+                                borderRadius: BorderRadius.circular(25.0),
                                 child: Container(
-                                    width: 150,
-                                    height: 150,
+                                    width: 200,
+                                    height: 200,
                                     child: Image.asset(
                                       "images/myself.jpg",
-                                      fit: BoxFit.fitWidth,
+                                      fit: BoxFit.fitHeight,
                                     )),
                               ),
                               SizedBox(
@@ -105,7 +105,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                               ),
                               AnimatedTextKit(animatedTexts: [
                                 WavyAnimatedText(
-                                  "Innovative | Self-Motivated | Ambitious. ",
+                                  "Innovative|Self-Motivated|Ambitious.",
                                   speed: Duration(milliseconds: 100),
                                   textStyle: GoogleFonts.aBeeZee(
                                     fontSize: 22,
@@ -148,7 +148,93 @@ class _mHomeScreenState extends State<mHomeScreen>
                           currentTheme: themeValue.getCurrentTheme,
                           text: "Technology Stack",
                         ),
-                        Padding(
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: (){
+                                launch("https://struts.apache.org/");
+                              },
+                              child: Column(
+                                children: [
+                                  Container(
+                                      width: 80,
+                                      height: 80,
+                                      child: Image.asset("images/tech1.webp")),
+                                  Text("Struts",style: TextStyle(
+                                    color: themeValue.getCurrentTheme.focusColor
+                                  ),),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 20.0,),
+                            GestureDetector(
+                              onTap: (){
+                                launch("https://www.java.com/en/");
+                              },
+                              child: Column(
+                                children: [
+                                  Container(
+                                      width: 80,
+                                      height: 80,
+                                      child: Image.asset("images/tech2.png")),
+                                  Text("Java",style: TextStyle(
+                                      color: themeValue.getCurrentTheme.focusColor
+                                  ),),
+                                ],
+                              ),
+                            ),
+
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: (){
+                                launch("https://flutter.dev/");
+                              },
+                              child: Column(
+                                children: [
+                                  Container(
+                                      width: 80,
+                                      height: 80,
+                                      child: Image.asset("images/tech3.png")),
+                                  Text("Flutter",style: TextStyle(
+                                      color: themeValue.getCurrentTheme.focusColor
+                                  ),),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 20.0,),
+                            GestureDetector(
+                              onTap: (){
+                                launch("https://firebase.google.com/");
+                              },
+                              child: Column(
+                                children: [
+                                  Container(
+                                      width: 80,
+                                      height: 80,
+                                      child: Image.asset("images/tech4.png")),
+                                  Text("Firebase",style: TextStyle(
+                                      color: themeValue.getCurrentTheme.focusColor
+                                  ),),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        /*Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Column(
                             children: [
@@ -196,7 +282,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                               ),
                             ],
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                   ),
@@ -283,16 +369,19 @@ class _mHomeScreenState extends State<mHomeScreen>
                         url:
                             'https://blog.apdevc.com/2020/02/flutter-tutorial-introduction-to-flutter.html',
                       ),
-                      SizedBox(height: 10.0,),
+                      SizedBox(
+                        height: 10.0,
+                      ),
                       GestureDetector(
-                        onTap: (){
-                          launch("https://blog.apdevc.com/search/label/Android%20Development");
+                        onTap: () {
+                          launch(
+                              "https://blog.apdevc.com/search/label/Android%20Development");
                         },
                         child: Container(
-                          width: 350,
+                          width: 200,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.0),
-                            color:MyConstants.accentColor,
+                            color: MyConstants.accentColor,
                           ),
                           child: Center(
                             child: Padding(
@@ -300,13 +389,19 @@ class _mHomeScreenState extends State<mHomeScreen>
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  FaIcon(FontAwesomeIcons.arrowRight,color: themeValue.getCurrentTheme.focusColor,),
-                                  SizedBox(width: 8.0,),
+                                  FaIcon(
+                                    FontAwesomeIcons.arrowRight,
+                                    color:
+                                        themeValue.getCurrentTheme.focusColor,
+                                  ),
+                                  SizedBox(
+                                    width: 8.0,
+                                  ),
                                   Text(
                                     "View all posts",
                                     style: TextStyle(
-                                        color: themeValue.getCurrentTheme.focusColor
-                                    ),
+                                        color: themeValue
+                                            .getCurrentTheme.focusColor),
                                   ),
                                 ],
                               ),
@@ -316,7 +411,9 @@ class _mHomeScreenState extends State<mHomeScreen>
                       ),
                     ],
                   ),
-                  SizedBox(height: 10.0,),
+                  SizedBox(
+                    height: 10.0,
+                  ),
                   //Footer
                   Container(
                     color: MyConstants.accentColor,
@@ -342,7 +439,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                                     launch(
                                         "https://twitter.com/pallavchaudhary");
                                   },
-                                  child: FaIcon(FontAwesomeIcons.twitter)),
+                                  child: FaIcon(FontAwesomeIcons.twitter,color: Colors.lightBlue,)),
                               SizedBox(
                                 width: 7.0,
                               ),
@@ -351,14 +448,16 @@ class _mHomeScreenState extends State<mHomeScreen>
                                     launch(
                                         "https://www.instagram.com/chaudhari_pallav98/");
                                   },
-                                  child: FaIcon(FontAwesomeIcons.instagram)),
+                                  child: FaIcon(FontAwesomeIcons.instagram,color: Colors.pink.shade300,)),
                               SizedBox(
                                 width: 7.0,
                               ),
-                              GestureDetector(onTap: () {
-                                launch(
-                                    "https://www.facebook.com/pallav.chaudhari");
-                              },child: FaIcon(FontAwesomeIcons.facebook)),
+                              GestureDetector(
+                                  onTap: () {
+                                    launch(
+                                        "https://www.facebook.com/pallav.chaudhari");
+                                  },
+                                  child: FaIcon(FontAwesomeIcons.facebook,color: Colors.lightBlue,)),
                             ],
                           ),
                           SizedBox(
@@ -368,26 +467,26 @@ class _mHomeScreenState extends State<mHomeScreen>
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Designed and Developed with ❤️ by Pallav Chaudhari in ",
+                                "Designed and Developed with ❤️ by Pallav Chaudhari",
                                 style: TextStyle(
-                                    color:
-                                        themeValue.getCurrentTheme.focusColor),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  launch("https://www.flutter.dev");
-                                },
-                                child: Text(
-                                  "Flutter.",
-                                  style: TextStyle(color: Colors.blue),
-                                ),
+                                    color:Colors.black),
+                                maxLines: 2,
                               ),
                             ],
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              launch("https://www.flutter.dev");
+                            },
+                            child: Text(
+                              "Developed in Flutter.",
+                              style: TextStyle(color: Colors.blue),
+                            ),
                           ),
                           Text(
                             "Copyright @ 2020 - 2022",
                             style: TextStyle(
-                                color: themeValue.getCurrentTheme.focusColor),
+                                color: Colors.black),
                           ),
                         ],
                       ),

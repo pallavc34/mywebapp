@@ -62,7 +62,7 @@ class _dHomeScreenState extends State<dHomeScreen>
               color: themeValue.getCurrentTheme.backgroundColor,
               child: Column(
                 children: [
-                  Container(
+                  /*Container(
                     child: Stack(
                       children: [
                         Padding(
@@ -132,6 +132,82 @@ class _dHomeScreenState extends State<dHomeScreen>
                         )
                       ],
                     ),
+                  ),*/
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                              width: 300,
+                              height: 300,
+                              child: Image.asset(
+                                "images/myself.jpg",
+                                fit: BoxFit.fitHeight,
+                              )),
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        Column(
+                          children: [
+                            AnimatedTextKit(
+                              animatedTexts: [
+                                TypewriterAnimatedText(
+                                  "Hey! I am Pallav",
+                                  speed: Duration(milliseconds: 200),
+                                  textStyle: GoogleFonts.aBeeZee(
+                                    fontSize: 25,
+                                    color:
+                                        themeValue.getCurrentTheme.focusColor,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                              isRepeatingAnimation: true,
+                            ),
+                            //SizedBox(height: 20,),
+                            AnimatedTextKit(
+                              animatedTexts: [
+                                WavyAnimatedText(
+                                  "Innovative | Self-Motivated | Ambitious. ",
+                                  speed: Duration(milliseconds: 100),
+                                  textStyle: GoogleFonts.aBeeZee(
+                                    fontSize: 22,
+                                    color:
+                                        themeValue.getCurrentTheme.focusColor,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                              isRepeatingAnimation: true,
+                            ),
+                            LimitedBox(
+                              maxWidth: size.width / 2 - 100,
+                              child: Text(
+                                MyConstants.introduction,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 20,
+                                  color: themeValue.getCurrentTheme.focusColor,
+                                ),
+                                textAlign: TextAlign.center,
+                                maxLines: 15,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   Container(
                     child: Column(
@@ -216,7 +292,7 @@ class _dHomeScreenState extends State<dHomeScreen>
                             "A sign language translator that aims to make communication with deaf people more easier",
                         image: "images/ISLT.jpg",
                         url:
-                        'https://play.google.com/store/apps/details?id=com.andrdoc.signlanguage',
+                            'https://play.google.com/store/apps/details?id=com.andrdoc.signlanguage',
                       ),
                       SizedBox(
                         width: 10.0,
@@ -227,8 +303,7 @@ class _dHomeScreenState extends State<dHomeScreen>
                             "A diary which saves all your secrets, keeps track of all your moods and looks better than the most",
                         image: "images/diary.jpg",
                         url:
-                        'https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy',
-
+                            'https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy',
                       ),
                     ],
                   ),
@@ -244,71 +319,81 @@ class _dHomeScreenState extends State<dHomeScreen>
                   SizedBox(
                     height: 20.0,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MaterialAppWidget(
-                        text:
-                            "How to add firebase authentication in android app",
-                        subtext:
-                            "Well, if minimal is what you like best then it is for you. Without much ado let's start to add Firebase authentication to your app.",
-                        image: "images/blog1.jpeg",
-                        url:
-                            'https://blog.apdevc.com/2019/08/how-to-add-firebase-authentication-in.html',
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      MaterialAppWidget(
-                        text:
-                            "Which is best language for Mobile app developer?",
-                        subtext:
-                            "As of now, approx 100 million people use Android devices. So, Here is the best language for mobile app development.",
-                        image: "images/blog2.png",
-                        url:
-                            'https://blog.apdevc.com/2019/01/which-programming-language-is-best-for.html',
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      MaterialAppWidget(
-                        text:
-                            "Why flutter is best for cross platform app development?",
-                        subtext:
-                            "Flutter is Google's cross-platform development SDK which uses one code base for both Android as well as iOS applications",
-                        image: "images/blog3.png",
-                        url:
-                            'https://blog.apdevc.com/2020/02/flutter-tutorial-introduction-to-flutter.html',
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          launch("https://blog.apdevc.com/search/label/Android%20Development");
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            color:MyConstants.accentColor,
-                          ),
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  FaIcon(FontAwesomeIcons.arrowRight,color: themeValue.getCurrentTheme.focusColor,),
-                                  SizedBox(width: 8.0,),
-                                  Text(
-                                    "View all posts",
-                                    style: TextStyle(
-                                      color: themeValue.getCurrentTheme.focusColor
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MaterialAppWidget(
+                          text:
+                              "How to add firebase authentication in android app",
+                          subtext:
+                              "Well, if minimal is what you like best then it is for you. Without much ado let's start to add Firebase authentication to your app.",
+                          image: "images/blog1.jpeg",
+                          url:
+                              'https://blog.apdevc.com/2019/08/how-to-add-firebase-authentication-in.html',
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        MaterialAppWidget(
+                          text:
+                              "Which is best language for Mobile app developer?",
+                          subtext:
+                              "As of now, approx 100 million people use Android devices. So, Here is the best language for mobile app development.",
+                          image: "images/blog2.png",
+                          url:
+                              'https://blog.apdevc.com/2019/01/which-programming-language-is-best-for.html',
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        MaterialAppWidget(
+                          text:
+                              "Why flutter is best for cross platform app development?",
+                          subtext:
+                              "Flutter is Google's cross-platform development SDK which uses one code base for both Android as well as iOS applications",
+                          image: "images/blog3.png",
+                          url:
+                              'https://blog.apdevc.com/2020/02/flutter-tutorial-introduction-to-flutter.html',
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            launch(
+                                "https://blog.apdevc.com/search/label/Android%20Development");
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: MyConstants.accentColor,
+                            ),
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    FaIcon(
+                                      FontAwesomeIcons.arrowRight,
+                                      color:
+                                          themeValue.getCurrentTheme.focusColor,
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                      width: 8.0,
+                                    ),
+                                    Text(
+                                      "View all posts",
+                                      style: TextStyle(
+                                          color: themeValue
+                                              .getCurrentTheme.focusColor),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                   //Footer
                   SizedBox(
@@ -338,7 +423,10 @@ class _dHomeScreenState extends State<dHomeScreen>
                                     launch(
                                         "https://twitter.com/pallavchaudhary");
                                   },
-                                  child: FaIcon(FontAwesomeIcons.twitter)),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.twitter,
+                                    color: Colors.lightBlue,
+                                  )),
                               SizedBox(
                                 width: 7.0,
                               ),
@@ -347,14 +435,22 @@ class _dHomeScreenState extends State<dHomeScreen>
                                     launch(
                                         "https://www.instagram.com/chaudhari_pallav98/");
                                   },
-                                  child: FaIcon(FontAwesomeIcons.instagram)),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.instagram,
+                                    color: Colors.pink.shade300,
+                                  )),
                               SizedBox(
                                 width: 7.0,
                               ),
-                              GestureDetector(onTap: () {
-                                launch(
-                                    "https://www.facebook.com/pallav.chaudhari");
-                              },child: FaIcon(FontAwesomeIcons.facebook)),
+                              GestureDetector(
+                                  onTap: () {
+                                    launch(
+                                        "https://www.facebook.com/pallav.chaudhari");
+                                  },
+                                  child: FaIcon(
+                                    FontAwesomeIcons.facebook,
+                                    color: Colors.lightBlue,
+                                  )),
                             ],
                           ),
                           SizedBox(
@@ -367,7 +463,7 @@ class _dHomeScreenState extends State<dHomeScreen>
                                 "Designed and Developed with ❤️ by Pallav Chaudhari in ",
                                 style: TextStyle(
                                     color:
-                                    themeValue.getCurrentTheme.focusColor),
+                                        themeValue.getCurrentTheme.focusColor),
                               ),
                               GestureDetector(
                                 onTap: () {

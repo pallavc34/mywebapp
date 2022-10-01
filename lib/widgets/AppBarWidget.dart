@@ -5,6 +5,8 @@ import 'package:mywebapp/Provider/ThemeProvider.dart';
 import 'package:mywebapp/constants.dart';
 import 'package:provider/provider.dart';
 
+import '../responsive_widget.dart';
+
 class AppBarWidget extends StatefulWidget {
   const AppBarWidget({Key? key}) : super(key: key);
 
@@ -37,9 +39,10 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                       child: Text(
                         "A Passionate Developers Creation",
                         style: GoogleFonts.averageSans(
-                          fontSize: 30.0,
-                          color: themeValue.getCurrentTheme.focusColor,
+                          fontSize: isLargeScreen(context) == true ? 30 : 25,
+                          color: Colors.black,
                         ),
+                        maxLines: 2,
                       ),
                     ),
                     buildNightMode(themeValue),
