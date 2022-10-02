@@ -45,7 +45,6 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                         maxLines: 2,
                       ),
                     ),
-                    buildNightMode(themeValue),
                   ],
                 ),
               ),
@@ -54,25 +53,4 @@ class _AppBarWidgetState extends State<AppBarWidget> {
         ));
   }
 
-  GestureDetector buildNightMode(themeValue) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          if (themeValue.isDark) {
-            myThemeIcon = FontAwesomeIcons.toggleOff;
-            myThemeIconColor = Colors.black;
-          } else {
-            myThemeIcon = FontAwesomeIcons.toggleOn;
-            myThemeIconColor = Colors.white;
-          }
-          Provider.of<ThemeProvider>(context, listen: false).changeTheme();
-        });
-      },
-      child: Icon(
-        myThemeIcon,
-        color: myThemeIconColor,
-        size: 35.0,
-      ),
-    );
-  }
 }

@@ -10,7 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../Provider/ThemeProvider.dart';
 import '../../constants.dart';
 import '../../widgets/BoldTitleTextWidget.dart';
-import '../../widgets/CardWidget.dart';
+import '../../widgets/TechWidget.dart';
 
 class dHomeScreen extends StatefulWidget {
   static const String id = "dhome_screen";
@@ -216,7 +216,61 @@ class _dHomeScreenState extends State<dHomeScreen>
                           currentTheme: themeValue.getCurrentTheme,
                           text: "Technology Stack",
                         ),
-                        Padding(
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TechWidget(
+                                imageString: "images/tech1.webp",
+                                launchURL: "https://struts.apache.org/",
+                                appText: "Struts"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech2.png",
+                                launchURL: "https://www.java.com/en/",
+                                appText: "Java"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech3.png",
+                                launchURL: "https://flutter.dev/",
+                                appText: "Flutter"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech5.png",
+                                launchURL: "https://developer.android.com/about/",
+                                appText: "Android"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech4.png",
+                                launchURL: "https://firebase.google.com/",
+                                appText: "Firebase"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech6.jpeg",
+                                launchURL: "https://www.sqlite.org/index.html",
+                                appText: "SQLite"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech7.png",
+                                launchURL: "https://www.w3schools.com/sql/",
+                                appText: "SQL"),
+                          ],
+                        ),
+                        /*Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
@@ -267,7 +321,7 @@ class _dHomeScreenState extends State<dHomeScreen>
                               ],
                             ),
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                   ),

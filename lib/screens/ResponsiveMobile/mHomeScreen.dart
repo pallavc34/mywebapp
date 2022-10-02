@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mywebapp/widgets/AppBarWidget.dart';
+import 'package:mywebapp/widgets/TechWidget.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../Provider/ThemeProvider.dart';
 import '../../constants.dart';
-import '../../responsive_widget.dart';
 import '../../widgets/BoldTitleTextWidget.dart';
-import '../../widgets/CardWidget.dart';
-import '../../widgets/CarouselWidget.dart';
 import '../../widgets/MaterialAppWidget.dart';
 
 class mHomeScreen extends StatefulWidget {
@@ -57,7 +55,7 @@ class _mHomeScreenState extends State<mHomeScreen>
       builder: (BuildContext context, themeValue, Widget? child) {
         return Scaffold(
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(60),
+            preferredSize: const Size.fromHeight(55),
             child: AppBarWidget(),
           ),
           body: SingleChildScrollView(
@@ -154,40 +152,17 @@ class _mHomeScreenState extends State<mHomeScreen>
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                              onTap: (){
-                                launch("https://struts.apache.org/");
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                      width: 80,
-                                      height: 80,
-                                      child: Image.asset("images/tech1.webp")),
-                                  Text("Struts",style: TextStyle(
-                                    color: themeValue.getCurrentTheme.focusColor
-                                  ),),
-                                ],
-                              ),
+                            TechWidget(
+                                imageString: "images/tech1.webp",
+                                launchURL: "https://struts.apache.org/",
+                                appText: "Struts"),
+                            SizedBox(
+                              width: 20.0,
                             ),
-                            SizedBox(width: 20.0,),
-                            GestureDetector(
-                              onTap: (){
-                                launch("https://www.java.com/en/");
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                      width: 80,
-                                      height: 80,
-                                      child: Image.asset("images/tech2.png")),
-                                  Text("Java",style: TextStyle(
-                                      color: themeValue.getCurrentTheme.focusColor
-                                  ),),
-                                ],
-                              ),
-                            ),
-
+                            TechWidget(
+                                imageString: "images/tech2.png",
+                                launchURL: "https://www.java.com/en/",
+                                appText: "Java"),
                           ],
                         ),
                         SizedBox(
@@ -196,39 +171,43 @@ class _mHomeScreenState extends State<mHomeScreen>
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                              onTap: (){
-                                launch("https://flutter.dev/");
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                      width: 80,
-                                      height: 80,
-                                      child: Image.asset("images/tech3.png")),
-                                  Text("Flutter",style: TextStyle(
-                                      color: themeValue.getCurrentTheme.focusColor
-                                  ),),
-                                ],
-                              ),
+                            TechWidget(
+                                imageString: "images/tech3.png",
+                                launchURL: "https://flutter.dev/",
+                                appText: "Flutter"),
+                            SizedBox(
+                              width: 20.0,
                             ),
-                            SizedBox(width: 20.0,),
-                            GestureDetector(
-                              onTap: (){
-                                launch("https://firebase.google.com/");
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                      width: 80,
-                                      height: 80,
-                                      child: Image.asset("images/tech4.png")),
-                                  Text("Firebase",style: TextStyle(
-                                      color: themeValue.getCurrentTheme.focusColor
-                                  ),),
-                                ],
-                              ),
-                            )
+                            TechWidget(
+                                imageString: "images/tech5.png",
+                                launchURL: "https://developer.android.com/about/",
+                                appText: "Android"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech4.png",
+                                launchURL: "https://firebase.google.com/",
+                                appText: "Firebase"),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TechWidget(
+                                imageString: "images/tech6.jpeg",
+                                launchURL: "https://www.sqlite.org/index.html",
+                                appText: "SQLite"),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            TechWidget(
+                                imageString: "images/tech7.png",
+                                launchURL: "https://www.w3schools.com/sql/",
+                                appText: "SQL"),
                           ],
                         ),
                         SizedBox(
@@ -439,7 +418,10 @@ class _mHomeScreenState extends State<mHomeScreen>
                                     launch(
                                         "https://twitter.com/pallavchaudhary");
                                   },
-                                  child: FaIcon(FontAwesomeIcons.twitter,color: Colors.lightBlue,)),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.twitter,
+                                    color: Colors.lightBlue,
+                                  )),
                               SizedBox(
                                 width: 7.0,
                               ),
@@ -448,7 +430,10 @@ class _mHomeScreenState extends State<mHomeScreen>
                                     launch(
                                         "https://www.instagram.com/chaudhari_pallav98/");
                                   },
-                                  child: FaIcon(FontAwesomeIcons.instagram,color: Colors.pink.shade300,)),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.instagram,
+                                    color: Colors.pink.shade300,
+                                  )),
                               SizedBox(
                                 width: 7.0,
                               ),
@@ -457,7 +442,10 @@ class _mHomeScreenState extends State<mHomeScreen>
                                     launch(
                                         "https://www.facebook.com/pallav.chaudhari");
                                   },
-                                  child: FaIcon(FontAwesomeIcons.facebook,color: Colors.lightBlue,)),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.facebook,
+                                    color: Colors.lightBlue,
+                                  )),
                             ],
                           ),
                           SizedBox(
@@ -468,8 +456,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                             children: [
                               Text(
                                 "Designed and Developed with ❤️ by Pallav Chaudhari",
-                                style: TextStyle(
-                                    color:Colors.black),
+                                style: TextStyle(color: Colors.black),
                                 maxLines: 2,
                               ),
                             ],
@@ -485,8 +472,7 @@ class _mHomeScreenState extends State<mHomeScreen>
                           ),
                           Text(
                             "Copyright @ 2020 - 2022",
-                            style: TextStyle(
-                                color: Colors.black),
+                            style: TextStyle(color: Colors.black),
                           ),
                         ],
                       ),

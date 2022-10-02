@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyConstants{
-  static Color accentColor = Color(0XFFe1bee7);
+  static Color accentColor = Color(0XFFbbdefb);
   static String introduction =
       "I am driven by the desire to leave a mark on the world. Professionally, "
       + "I work as a Java developer in TCS Limited. "
@@ -10,7 +10,7 @@ class MyConstants{
       + "I am an engineer by profession and developer by passion."
       + "I am passionate about developing native Android and cross platform apps with flutter framework. ";
 
-  static String ISLTDescription ="India sign language translator for communication between normal people and deaf and dumb people. "
+  static String ISLTDescription ="Indian sign language translator for communication between normal people and deaf and dumb people. "
       +"This app is aimed at reducing the use of translators between normal people and deaf and dumb people."
           +"This app uses the Indian Sign Language for Communication."
           +"This app is developed as a  part of my final year project.";
