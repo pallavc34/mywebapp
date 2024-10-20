@@ -34,11 +34,6 @@ dependencies:
   carousel_slider: ^5.0.0
   font_awesome_flutter: ^10.1.0
   provider: ^6.1.2
-  flutter_native_splash: ^2.4.1
-
-flutter_native_splash:
-  color: "#FFFFFF"
-  image: images/icon-512.png
 
 dev_dependencies:
   flutter_test:
