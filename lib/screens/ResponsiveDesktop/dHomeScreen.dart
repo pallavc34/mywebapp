@@ -62,77 +62,6 @@ class _dHomeScreenState extends State<dHomeScreen>
               color: themeValue.getCurrentTheme.colorScheme.surface,
               child: Column(
                 children: [
-                  /*Container(
-                    child: Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(100.0),
-                                child: Container(
-                                    width: 200,
-                                    height: 200,
-                                    child: Image.asset(
-                                      "images/myself.jpg",
-                                      fit: BoxFit.fitWidth,
-                                    )),
-                              ),
-                              SizedBox(
-                                height: 40.0,
-                              ),
-                              AnimatedTextKit(animatedTexts: [
-                                TypewriterAnimatedText(
-                                  "Hey! I am Pallav",
-                                  speed: Duration(milliseconds: 200),
-                                  textStyle: GoogleFonts.aBeeZee(
-                                    fontSize: 25,
-                                    color:
-                                        themeValue.getCurrentTheme.focusColor,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ]),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              AnimatedTextKit(animatedTexts: [
-                                WavyAnimatedText(
-                                  "Innovative | Self-Motivated | Ambitious. ",
-                                  speed: Duration(milliseconds: 100),
-                                  textStyle: GoogleFonts.aBeeZee(
-                                    fontSize: 22,
-                                    color:
-                                        themeValue.getCurrentTheme.focusColor,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ]),
-                              Container(
-                                padding: EdgeInsets.symmetric(horizontal: 40.0),
-                                child: Text(
-                                  MyConstants.introduction,
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 20,
-                                    color:
-                                        themeValue.getCurrentTheme.focusColor,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),*/
                   SizedBox(
                     height: 20.0,
                   ),
@@ -164,7 +93,6 @@ class _dHomeScreenState extends State<dHomeScreen>
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 20,),
                             Text(
                               "Innovative | Relentless | Ambitious ",
                               style: GoogleFonts.aBeeZee(
@@ -257,58 +185,6 @@ class _dHomeScreenState extends State<dHomeScreen>
                                 appText: "SQL"),
                           ],
                         ),
-                        /*Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 350,
-                                  height: 250,
-                                  child: Center(
-                                    child: CardWidget(
-                                      title: "Java Developer",
-                                      subtitle: "I am experienced in designing, developing and debugging frontend user interfaces in Ja" +
-                                          "va in Banking domain. Worked in TCS BANCS in banking products. Tools used include " +
-                                          "Eclipse, Tomcat Server, SQL Developer",
-                                      iconData: FontAwesomeIcons.java,
-                                      iconColor: Colors.red,
-                                    ),
-                                  ),
-                                ),
-                                Center(
-                                  child: Container(
-                                    width: 350,
-                                    height: 250,
-                                    child: CardWidget(
-                                      title: "Native Android Developer",
-                                      subtitle:
-                                          "Developing Android apps has always been a passion. I develop apps in Native Android "
-                                          "as well as Google's Flutter UI framework which is popular for beautiful designs.",
-                                      iconData: FontAwesomeIcons.android,
-                                      iconColor: Colors.green,
-                                    ),
-                                  ),
-                                ),
-                                Center(
-                                  child: Container(
-                                    width: 350,
-                                    height: 250,
-                                    child: CardWidget(
-                                      title: "Flutter Developer",
-                                      subtitle:
-                                          "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
-                                          "which is popular for beautiful designs with skia, its own graphic engine.",
-                                      iconData: FontAwesomeIcons.appStoreIos,
-                                      iconColor: Colors.blue,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),*/
                       ],
                     ),
                   ),
@@ -346,6 +222,18 @@ class _dHomeScreenState extends State<dHomeScreen>
                         url:
                             'https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy',
                       ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      MaterialAppWidget(
+                        text: "StreakOMeter",
+                        subtext:
+                        "StreakOMeter is an app to integrate new positive habits into your lifestyle and eliminate negative habits. ",
+                        image: "images/habits.png",
+                        //TODO add habits url
+                        url:
+                        'https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy',
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -372,7 +260,7 @@ class _dHomeScreenState extends State<dHomeScreen>
                               "Well, if minimal is what you like best then it is for you. Without much ado let's start to add Firebase authentication to your app.",
                           image: "images/blog1.jpeg",
                           url:
-                              'https://blog.apdevc.com/2019/08/how-to-add-firebase-authentication-in.html',
+                              'https://androidinmyblood.blogspot.com/2019/08/how-to-add-firebase-authentication-in.html',
                         ),
                         SizedBox(
                           width: 10.0,
@@ -384,7 +272,7 @@ class _dHomeScreenState extends State<dHomeScreen>
                               "As of now, approx 100 million people use Android devices. So, Here is the best language for mobile app development.",
                           image: "images/blog2.png",
                           url:
-                              'https://blog.apdevc.com/2019/01/which-programming-language-is-best-for.html',
+                              'https://androidinmyblood.blogspot.com/2019/01/which-programming-language-is-best-for.html',
                         ),
                         SizedBox(
                           width: 10.0,
@@ -396,14 +284,43 @@ class _dHomeScreenState extends State<dHomeScreen>
                               "Flutter is Google's cross-platform development SDK which uses one code base for both Android as well as iOS applications",
                           image: "images/blog3.png",
                           url:
-                              'https://blog.apdevc.com/2020/02/flutter-tutorial-introduction-to-flutter.html',
+                              'https://androidinmyblood.blogspot.com/2020/02/flutter-tutorial-introduction-to-flutter.html',
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        MaterialAppWidget(
+                          text:
+                          "Work Manager, the new Advanced Alarm Manager | Supports API 14+ | Works even in Doze Mode",
+                          subtext:
+                          "Since Android Oreo and above, Google has introduced doze mode which suspends almost all the Alarm Manager requests",
+                          image: "images/blog4.png",
+                          url:
+                          'https://androidinmyblood.blogspot.com/2020/09/work-manager-new-advanced-alarm-manager.html',
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        MaterialAppWidget(
+                          text:
+                          "How to add Google Speech to Text to your android app",
+                          subtext:
+                          "Nowadays, each and every app on the Playstore uses voice search from Google. Well, because it is much easier to just speak",
+                          image: "images/blog5.png",
+                          url:
+                          'https://androidinmyblood.blogspot.com/2019/09/how-to-add-google-speech-to-text-to.html',
+                        ),
+                        SizedBox(
+                          width: 10.0,
                         ),
                         GestureDetector(
                           onTap: () {
                             launch(
-                                "https://blog.apdevc.com/search/label/Android%20Development");
+                                "https://androidinmyblood.blospot.com");
                           },
                           child: Container(
+                            height: 60,
+                            width: 60,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20.0),
                               color: MyConstants.accentColor,
@@ -411,23 +328,10 @@ class _dHomeScreenState extends State<dHomeScreen>
                             child: Center(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.arrowRight,
-                                      color:
-                                          themeValue.getCurrentTheme.focusColor,
-                                    ),
-                                    SizedBox(
-                                      width: 8.0,
-                                    ),
-                                    Text(
-                                      "View all posts",
-                                      style: TextStyle(
-                                          color: themeValue
-                                              .getCurrentTheme.focusColor),
-                                    ),
-                                  ],
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  color:
+                                      themeValue.getCurrentTheme.focusColor,
                                 ),
                               ),
                             ),

@@ -210,55 +210,6 @@ class _mHomeScreenState extends State<mHomeScreen>
                         SizedBox(
                           height: 20.0,
                         ),
-                        /*Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 350,
-                                height: 250,
-                                child: Center(
-                                  child: CardWidget(
-                                    title: "Java Developer",
-                                    subtitle: "I am experienced in designing, developing and debugging frontend user interfaces in Ja" +
-                                        "va in Banking domain. Working with TCS BANCS in banking products. Tools used include " +
-                                        "Eclipse, Tomcat Server, SQL Developer",
-                                    iconData: FontAwesomeIcons.java,
-                                    iconColor: Colors.red,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 350,
-                                height: 250,
-                                child: Center(
-                                  child: CardWidget(
-                                    title: "Native Android Developer",
-                                    subtitle:
-                                        "Developing Android apps has always been a passion. I develop apps in Native Android "
-                                        "as well as Google's Flutter UI framework which is popular for beautiful designs.",
-                                    iconData: FontAwesomeIcons.android,
-                                    iconColor: Colors.green,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 350,
-                                height: 250,
-                                child: Center(
-                                  child: CardWidget(
-                                    title: "Flutter Developer",
-                                    subtitle:
-                                        "Cross platform apps that look and feel native. I develop cross platform apps in Flutter framework "
-                                        "which is popular for beautiful designs with skia, its own graphic engine.",
-                                    iconData: FontAwesomeIcons.appStoreIos,
-                                    iconColor: Colors.blue,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),*/
                       ],
                     ),
                   ),
@@ -294,6 +245,18 @@ class _mHomeScreenState extends State<mHomeScreen>
                         image: "images/diary.jpg",
                         url:
                             'https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy',
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      MaterialAppWidget(
+                        text: "StreakOMeter",
+                        subtext:
+                        "StreakOMeter is an app to integrate new positive habits into your lifestyle and eliminate negative habits. ",
+                        image: "images/habits.png",
+                        //TODO add habits url
+                        url:
+                        'https://play.google.com/store/apps/details?id=com.androidinmyblood.personaldairy',
                       ),
                     ],
                   ),
