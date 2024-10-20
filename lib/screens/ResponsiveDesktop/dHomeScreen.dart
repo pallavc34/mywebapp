@@ -59,7 +59,7 @@ class _dHomeScreenState extends State<dHomeScreen>
           body: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Container(
-              color: themeValue.getCurrentTheme.backgroundColor,
+              color: themeValue.getCurrentTheme.colorScheme.surface,
               child: Column(
                 children: [
                   /*Container(
@@ -155,38 +155,24 @@ class _dHomeScreenState extends State<dHomeScreen>
                         ),
                         Column(
                           children: [
-                            AnimatedTextKit(
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                  "Hey! I am Pallav",
-                                  speed: Duration(milliseconds: 200),
-                                  textStyle: GoogleFonts.aBeeZee(
-                                    fontSize: 25,
-                                    color:
-                                        themeValue.getCurrentTheme.focusColor,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                              isRepeatingAnimation: true,
+                            Text(
+                              "Hey! I am Pallav",
+                              style: GoogleFonts.aBeeZee(
+                                fontSize: 25,
+                                color: themeValue.getCurrentTheme.focusColor,
+                                fontWeight: FontWeight.w300,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            //SizedBox(height: 20,),
-                            AnimatedTextKit(
-                              animatedTexts: [
-                                WavyAnimatedText(
-                                  "Innovative | Self-Motivated | Ambitious. ",
-                                  speed: Duration(milliseconds: 100),
-                                  textStyle: GoogleFonts.aBeeZee(
-                                    fontSize: 22,
-                                    color:
-                                        themeValue.getCurrentTheme.focusColor,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                              isRepeatingAnimation: true,
+                            SizedBox(height: 20,),
+                            Text(
+                              "Innovative | Relentless | Ambitious ",
+                              style: GoogleFonts.aBeeZee(
+                                fontSize: 22,
+                                color: themeValue.getCurrentTheme.focusColor,
+                                fontWeight: FontWeight.w300,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
                             LimitedBox(
                               maxWidth: size.width / 2 - 100,
@@ -245,7 +231,8 @@ class _dHomeScreenState extends State<dHomeScreen>
                             ),
                             TechWidget(
                                 imageString: "images/tech5.png",
-                                launchURL: "https://developer.android.com/about/",
+                                launchURL:
+                                    "https://developer.android.com/about/",
                                 appText: "Android"),
                             SizedBox(
                               width: 20.0,

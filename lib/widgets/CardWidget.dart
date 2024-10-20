@@ -21,7 +21,7 @@ class CardWidget extends StatelessWidget {
       padding: const EdgeInsets.only(right: 20.0,bottom: 20.0),
       child: Card(
         elevation: 20.0,
-        color: currentTheme.backgroundColor,
+        color: currentTheme.colorScheme.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.0),
         ),

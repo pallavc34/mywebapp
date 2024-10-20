@@ -61,7 +61,7 @@ class _mHomeScreenState extends State<mHomeScreen>
           body: SingleChildScrollView(
             physics: ClampingScrollPhysics(),
             child: Container(
-              color: themeValue.getCurrentTheme.backgroundColor,
+              color: themeValue.getCurrentTheme.colorScheme.surface,
               child: Column(
                 children: [
                   Container(
@@ -101,19 +101,15 @@ class _mHomeScreenState extends State<mHomeScreen>
                               SizedBox(
                                 height: 20,
                               ),
-                              AnimatedTextKit(animatedTexts: [
-                                WavyAnimatedText(
-                                  "Innovative|Self-Motivated|Ambitious.",
-                                  speed: Duration(milliseconds: 100),
-                                  textStyle: GoogleFonts.aBeeZee(
-                                    fontSize: 22,
-                                    color:
-                                        themeValue.getCurrentTheme.focusColor,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                  textAlign: TextAlign.center,
+                              Text(
+                                "Innovative | Relentless | Ambitious ",
+                                style: GoogleFonts.aBeeZee(
+                                  fontSize: 22,
+                                  color: themeValue.getCurrentTheme.focusColor,
+                                  fontWeight: FontWeight.w300,
                                 ),
-                              ]),
+                                textAlign: TextAlign.center,
+                              ),
                               SizedBox(
                                 height: 20,
                               ),
@@ -180,7 +176,8 @@ class _mHomeScreenState extends State<mHomeScreen>
                             ),
                             TechWidget(
                                 imageString: "images/tech5.png",
-                                launchURL: "https://developer.android.com/about/",
+                                launchURL:
+                                    "https://developer.android.com/about/",
                                 appText: "Android"),
                             SizedBox(
                               width: 20.0,

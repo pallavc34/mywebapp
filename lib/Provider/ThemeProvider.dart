@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class ThemeProvider extends ChangeNotifier{
   ThemeData getCurrentTheme = ThemeData.light().copyWith(
+    colorScheme: ColorScheme.light(surface: Colors.white),
       hintColor: Color(0XFFe1bee7),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      backgroundColor: Colors.white,
       focusColor: Colors.black
   );
   bool isDark = false;
@@ -22,9 +22,9 @@ class ThemeProvider extends ChangeNotifier{
 
   ThemeData getLightTheme(){
     ThemeData lighttheme = ThemeData.light().copyWith(
+        colorScheme: ColorScheme.light(surface: Colors.white),
         hintColor: Color(0XFFe1bee7),
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        backgroundColor: Colors.white,
         focusColor: Colors.black
     );
     return lighttheme;
@@ -32,9 +32,9 @@ class ThemeProvider extends ChangeNotifier{
 
   ThemeData getDarkTheme(){
     ThemeData darktheme = ThemeData.dark().copyWith(
+      colorScheme: ColorScheme.dark(surface: Colors.black),
       hintColor: Color(0XFFe1bee7),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      backgroundColor: Colors.black,
       focusColor: Colors.white,
     );
     return darktheme;
